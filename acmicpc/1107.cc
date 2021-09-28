@@ -32,19 +32,22 @@ int main() {
     }
     if (N == 100) {
         printf("0");
-    } else if (N == 99 || N == 101) {
+    }
+    else if (N == 99 || N == 101) {
         printf("1");
-    } else if (N == 98 || N == 102) {
+    }
+    else if (N == 98 || N == 102) {
         printf("2");
-    } else {
+    }
+    else {
         int max = abs(N - 100);
         int i;
         for (i = 0; i < max; ++i) {
-            if ((N - i >= 0) && check(N - i)) {
+            if ((N - i >= 0) && check(N - i) && (digits(N - i) + i) < max) {
                 printf("%d", digits(N - i) + i);
                 return 0;
             }
-            if (check(N + i)) {
+            if (check(N + i) && (digits(N + i) + i) < max) {
                 printf("%d", digits(N + i) + i);
                 return 0;
             }
